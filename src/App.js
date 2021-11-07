@@ -1,7 +1,10 @@
 import './App.css';
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword, onAuthStateChanged,
-        signOut, signInWithEmailAndPassword
+import { 
+  createUserWithEmailAndPassword, 
+  onAuthStateChanged,
+  signOut, 
+  signInWithEmailAndPassword
 } from "firebase/auth";
 import {auth} from './firebase-config';
 
@@ -19,7 +22,6 @@ console.log(user);
 onAuthStateChanged(auth, (currentUser) => {
   setUser(currentUser)
 })
-
 
 const register = async () => {
   try {
@@ -45,7 +47,6 @@ const logout = async () => {
 
   return (
     <div className="App">
-
       <div className="register">
         <h1>Register User</h1>
       <input type="text" onChange={(e) => {setRegisterEmail(e.target.value)}} placeholder="Your name"/> <br />
@@ -60,9 +61,8 @@ const logout = async () => {
       <button onClick={login}>Login</button>
       </div> 
       <br /> <br />
-      <h4>User LoggedIn :{user?.email} </h4>
+      <h4>User LoggedIn : {user?.email} </h4>
       <button onClick={logout}>Log Out</button>
-
     </div>
   );
 }
